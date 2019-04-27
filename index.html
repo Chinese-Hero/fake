@@ -1,0 +1,142 @@
+<<<<<<< HEAD
+<html>
+<head>
+<style>
+.block {
+width: 10px;
+height: 10px;
+margin: 1px;
+background-color: gray;
+float: left;
+}
+</style>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+var arr = new Array();
+$(document).ready(function(){
+var week = new Date().getDay();  
+var day=new Date().getDay();
+switch (day)
+{
+case 0:
+  x="Today it's Sunday";
+  break;
+case 1:
+  x="Today it's Monday";
+  break;
+case 2:
+  x="Today it's Tuesday";
+  break;
+case 3:
+  x="Today it's Wednesday";
+  break;
+case 4:
+  x="Today it's Thursday";
+  break;
+case 5:
+  x="Today it's Friday";
+  break;
+case 6:
+  x="Today it's Saturday";
+  break;
+}
+
+
+
+
+for(var j = 0; j<7;j++){
+  $("body").append("<div style='clear:both'></div>")
+  for (var i = 0; i<50; i++){
+    $("body").append("<div class='block' id='"+(i*7+j)+"' select='false'></div>");
+     
+  }
+
+}
+
+$("body").append("<br /><div id='arr'></div>");
+
+$(".block").on('click',function(){
+
+
+if (this.getAttribute("select") == "false") {
+$(this).css("background-color","green");
+$(this).attr("select","true")
+arr.push(this.id);
+}else{
+$(this).css("background-color","gray");
+$(this).attr("select","false")
+}
+
+$("#arr").html(arr);
+
+});
+
+});
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+=======
+<html>
+<head>
+<style>
+.block {
+width: 10px;
+height: 10px;
+margin: 1px;
+background-color: gray;
+float: left;
+}
+</style>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+var arr = new Array();
+$(document).ready(function(){
+var week = new Date().getDay();  
+alert(week);
+
+
+
+
+for(var j = 0; j<7;j++){
+  $("body").append("<div style='clear:both'></div>")
+  for (var i = 0; i<50; i++){
+    $("body").append("<div class='block' id='"+(i*7+j)+"' select='false'></div>");
+     
+  }
+
+}
+
+$("body").append("<br /><div id='arr'></div>");
+
+$(".block").on('click',function(){
+
+
+if (this.getAttribute("select") == "false") {
+$(this).css("background-color","green");
+$(this).attr("select","true")
+arr.push(this.id);
+}else{
+$(this).css("background-color","gray");
+$(this).attr("select","false")
+}
+
+$("#arr").html(arr);
+
+});
+
+});
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+>>>>>>> e3848c3811b7c32a8a78b238f7cdec620aede347
+</html>
