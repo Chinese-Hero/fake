@@ -1,0 +1,61 @@
+<html>
+<head>
+<style>
+.block {
+width: 10px;
+height: 10px;
+margin: 1px;
+background-color: gray;
+float: left;
+}
+</style>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+var arr = new Array();
+$(document).ready(function(){
+var week = new Date().getDay();  
+alert(week);
+switch (week)
+case "6":
+alert("6");
+break;
+
+
+
+for(var j = 0; j<7;j++){
+  $("body").append("<div style='clear:both'></div>")
+  for (var i = 0; i<50; i++){
+    $("body").append("<div class='block' id='"+(i*7+j)+"' select='false'></div>");
+     
+  }
+
+}
+
+$("body").append("<br /><div id='arr'></div>");
+
+$(".block").on('click',function(){
+
+
+if (this.getAttribute("select") == "false") {
+$(this).css("background-color","green");
+$(this).attr("select","true")
+arr.push(this.id);
+}else{
+$(this).css("background-color","gray");
+$(this).attr("select","false")
+}
+
+$("#arr").html(arr);
+
+});
+
+});
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
