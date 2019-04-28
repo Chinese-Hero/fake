@@ -1,3 +1,4 @@
+<!--- 1 3 -->
 <html>
 <head>
 <style>
@@ -11,6 +12,7 @@ float: left;
 </style>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script>
+var x;
 var arr = new Array();
 $(document).ready(function(){
 var week = new Date().getDay();  
@@ -18,25 +20,25 @@ var day=new Date().getDay();
 switch (day)
 {
 case 0:
-  x="Today it's Sunday";
+  x=364;
   break;
 case 1:
-  x="Today it's Monday";
+  x=365;
   break;
 case 2:
-  x="Today it's Tuesday";
+  x=366;
   break;
 case 3:
-  x="Today it's Wednesday";
+  x=367;
   break;
 case 4:
-  x="Today it's Thursday";
+  x=368;
   break;
 case 5:
-  x="Today it's Friday";
+  x=369;
   break;
 case 6:
-  x="Today it's Saturday";
+  x=370;
   break;
 }
 
@@ -45,7 +47,7 @@ case 6:
 
 for(var j = 0; j<7;j++){
   $("body").append("<div style='clear:both'></div>")
-  for (var i = 0; i<50; i++){
+  for (var i = 0; i<53; i++){
     $("body").append("<div class='block' id='"+(i*7+j)+"' select='false'></div>");
      
   }
@@ -60,10 +62,11 @@ $(".block").on('click',function(){
 if (this.getAttribute("select") == "false") {
 $(this).css("background-color","green");
 $(this).attr("select","true")
-arr.push(this.id);
+arr.push(x-this.id);
 }else{
 $(this).css("background-color","gray");
 $(this).attr("select","false")
+arr.remove(x- this.id)
 }
 
 $("#arr").html(arr);
@@ -71,6 +74,13 @@ $("#arr").html(arr);
 });
 
 });
+
+Array.prototype.remove = function(val) {
+var index = this.indexOf(val);
+if (index > -1) {
+this.splice(index, 1);
+}
+};
 
 </script>
 </head>
